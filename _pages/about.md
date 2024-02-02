@@ -2,14 +2,14 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: Department of Economics, University of Hawaii at Manoa
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: true # crops the image to make it circular
   more_info: >
-    <p>808 517 7704</p>
+    <p>tahokovi@hawaii.edu</p>
     <p>2424 Maile Way, Saunders Hall 540 (UHERO)</p>
     <p>Honolulu, Hawaii 96822</p>
 
