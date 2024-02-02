@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://tahokovi.github.io/al-folio/sitemap.xml
+Sitemap: https://tahokovi.github.io//sitemap.xml
