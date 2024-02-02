@@ -9,3 +9,5 @@ description: This is a description of the page. You can modify it in '_pages/cv.
 toc:
   sidebar: left
 ---
+
+<iframe src="/assets/pdfs/Ahokovi_CV.pdf" style="width:100%; height:600px;" frameborder="0"></iframe>
