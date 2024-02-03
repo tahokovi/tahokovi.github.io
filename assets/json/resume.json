@@ -39,11 +39,19 @@
       "location": "Honolulu, HI",
       "url": "https://manoa.hawaii.edu/",
       "area": "Quantitative Economics Concentration",
-      "studyType": "BA",
+      "studyType": "Bachelor of Arts (BA)",
       "startDate": "2021-08-01",
       "endDate": "2024-05-01",
       "score": "10",
-      "courses": ["Econometrics 1 (PhD level)"]
+      "courses": ["Differential, Integral, and Multivariable Calculus (I-III)",
+                  "Advanced Mathematics (methods of proof, set theory, axiomatic systems)",
+                  "Linear Algebra",
+                  "Econometrics I (PhD level) & Econometrics I-II (undergraduate)",
+                  "Mathematical Economics (linear programming & optimization)",
+                  "Intermediate Micro- & Macroeconomic Theory",
+                  "Machine Learning Methods",
+                  "Advanced Directed Research (with Prof. Dylan Moore)",
+                  "Data Analysis & Visualization"]
     }
   ],
   "awards": [
