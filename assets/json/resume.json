@@ -56,11 +56,33 @@
   ],
   "awards": [
     {
-      "title": "Nobel Prize in Physics",
-      "date": "1921-11-01",
-      "awarder": "Royal Swedish Academy of Sciences",
-      "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
+      "title": "HEA Scholarship",
+      "date": "2024-12-01",
+      "awarder": "Hawaii Economic Association",
+      "url": "https://hawaiieconomicassociation.com/about",
+      "summary": "One of two undergraduate recipients."
+    }
+    {
+      "title": "Dean's List",
+      "startDate": "2021-08-01",
+      "endDate": "2023-12-01",
+      "awarder": "College of Social Sciences, University of Hawaii at Manoa",
+      "url": "https://manoa.hawaii.edu/",
+      "summary": "The Dean's List recognizes students with a superior academic record, i.e., a minimum current GPA of 3.5 for 12 or more credits of academic coursework."
+    }
+    {
+      "title": "Member",
+      "date": "2022-04-01",
+      "awarder": "Omicron Delta Epsilon Economics Honor Society",
+      "url": "https://www.omicrondeltaepsilon.org/",
+      "summary": "Awarded to eligible undergraduate economics majors and minors with at least a 3.5 GPA in economics courses among other qualifications."
+    }
+    {
+      "title": "Member",
+      "date": "2024-01-01",
+      "awarder": "Pi Gamma Mu International Honor Society in Social Sciences",
+      "url": "https://pigammamu.org/",
+      "summary": "Awarded to eligible undergraduate social science majors with at least a 3.0 GPA in social science courses among other qualifications."
     }
   ],
   "publications": [
