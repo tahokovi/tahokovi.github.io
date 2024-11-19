@@ -250,3 +250,25 @@ a:hover {
     background-color: var(--primary-blue);
     color: var(--white);
 }
+
+.social-links {
+    display: flex;
+    gap: 1.5em;
+    margin-top: 1em;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s ease;
+}
+
+.social-icon:hover img {
+    transform: translateY(-2px);
+}
