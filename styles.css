@@ -265,14 +265,14 @@ a:hover {
 }
 
 .social-icon img {
-    width: 20px;  /* Reduced from 20px to 12px */
+    width: 22px;  /* Reduced from 20px to 12px */
     height: 20px; /* Reduced from 20px to 12px */
     transition: transform 0.2s ease;
 }
 
 /* Special case for LinkedIn logo which is typically wider */
 .social-icon img[alt="LinkedIn"] {
-    width: 40px;  /* Reduced from 72px to 40px */
+    width: 50px;  /* Reduced from 72px to 40px */
     height: 20px; /* Matches other icons' height */
 }
 
