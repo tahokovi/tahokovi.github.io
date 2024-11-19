@@ -255,6 +255,7 @@ a:hover {
     display: flex;
     gap: 1.5em;
     margin-top: 1em;
+    align-items: center;  /* This ensures vertical alignment */
 }
 
 .social-icon {
@@ -264,9 +265,16 @@ a:hover {
 }
 
 .social-icon img {
-    width: 24px;
-    height: 24px;
+    width: 20px;  /* Reduced from 24px */
+    height: 20px; /* Reduced from 24px */
     transition: transform 0.2s ease;
+    /* Special case for LinkedIn logo which tends to be wider */
+}
+
+/* Special case for LinkedIn logo which is typically wider */
+.social-icon img[alt="LinkedIn"] {
+    width: 72px;  /* Adjust this value as needed */
+    height: 20px;
 }
 
 .social-icon:hover img {
