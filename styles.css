@@ -132,3 +132,23 @@ footer {
         justify-content: center;
     }
 }
+
+/* Add this to your existing styles.css file */
+.paper {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 1.5em;
+    margin-top: 2em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.paper:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.publications {
+    margin-top: 3em;
+}
