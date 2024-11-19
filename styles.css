@@ -272,7 +272,7 @@ a:hover {
 
 /* Special case for LinkedIn logo which is typically wider */
 .social-icon img[alt="LinkedIn"] {
-    width: 65px;  /* Reduced from 72px to 40px */
+    width: 72px;  /* Reduced from 72px to 40px */
     height: 20px; /* Matches other icons' height */
 }
 
