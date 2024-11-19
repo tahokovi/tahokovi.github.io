@@ -133,7 +133,10 @@ footer {
     }
 }
 
-/* Add this to your existing styles.css file */
+.publications {
+    margin-top: 3em;
+}
+
 .paper {
     background-color: #f8f9fa;
     border: 1px solid #e9ecef;
@@ -149,6 +152,23 @@ footer {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.publications {
-    margin-top: 3em;
+/* Additional styles for other elements */
+.paper h3 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.paper .authors {
+    margin-bottom: 1em;
+    color: #666;
+}
+
+.paper .abstract {
+    margin-top: 1em;
+}
+
+/* Style for italic conference lines */
+.paper p[style*="italic"] {
+    font-style: italic;
+    margin: 0.1em 0;
 }
