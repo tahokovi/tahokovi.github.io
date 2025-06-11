@@ -1,12 +1,14 @@
-/* Color variables */
+/* Color variables - Stanford Theme */
 :root {
-    --primary-blue: #1a73e8;
-    --light-blue: #e8f0fe;
-    --dark-blue: #1557b0;
-    --text-primary: #202124;
-    --text-secondary: #5f6368;
+    --primary-red: #8C1515;
+    --light-red: #B83A4B;
+    --dark-red: #820000;
+    --stanford-light: #F4F4F4;
+    --text-primary: #2E2D29;
+    --text-secondary: #5E5E5E;
     --white: #ffffff;
-    --border-color: #e0e0e0;
+    --border-color: #D5D5D5;
+    --shadow-red: rgba(140, 21, 21, 0.1);
 }
 
 /* Base styles */
@@ -29,7 +31,7 @@ body {
 /* Navigation */
 nav {
     padding: 20px 0;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 2px solid var(--primary-red);
     margin-bottom: 40px;
     background-color: var(--white);
 }
@@ -44,12 +46,12 @@ nav {
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
-    color: var(--primary-blue);
+    color: var(--primary-red);
     transition: color 0.2s ease;
 }
 
 .nav-name:hover {
-    color: var(--dark-blue);
+    color: var(--dark-red);
 }
 
 .nav-links {
@@ -60,14 +62,16 @@ nav {
 .nav-links a {
     text-decoration: none;
     color: var(--text-secondary);
-    padding: 5px 10px;
-    transition: color 0.2s ease;
+    padding: 8px 16px;
+    transition: all 0.2s ease;
     border-radius: 4px;
+    font-weight: 500;
 }
 
 .nav-links a:hover {
-    color: var(--primary-blue);
-    background-color: var(--light-blue);
+    color: var(--white);
+    background-color: var(--primary-red);
+    transform: translateY(-1px);
 }
 
 /* Profile Section */
@@ -76,11 +80,11 @@ nav {
     gap: 3em;
     max-width: 1200px;
     margin: 3em auto;
-    padding: 2em;
+    padding: 2.5em;
     background-color: var(--white);
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-red);
+    border-left: 4px solid var(--primary-red);
 }
 
 .profile-image {
@@ -88,7 +92,8 @@ nav {
     height: 300px;
     object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(26,115,232,0.1);
+    box-shadow: 0 6px 16px var(--shadow-red);
+    border: 2px solid var(--stanford-light);
 }
 
 .profile-info {
@@ -99,18 +104,21 @@ nav {
     margin: 0;
     font-size: 2.5em;
     color: var(--text-primary);
+    font-weight: 600;
 }
 
 .profile-info h2 {
     margin: 0.3em 0 1em 0;
     font-size: 1.5em;
-    color: var(--primary-blue);
+    color: var(--primary-red);
+    font-weight: 500;
 }
 
 .institution {
     font-size: 1.1em;
     color: var(--text-secondary);
     margin-bottom: 1.5em;
+    font-weight: 500;
 }
 
 .contact-info {
@@ -126,19 +134,22 @@ nav {
 .about-section {
     max-width: 1200px;
     margin: 3em auto;
-    padding: 2em;
-    background-color: var(--light-blue);
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(26,115,232,0.05);
+    padding: 2.5em;
+    background: linear-gradient(135deg, var(--stanford-light) 0%, #FAFAFA 100%);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px var(--shadow-red);
+    border-top: 3px solid var(--primary-red);
 }
 
 .about-section h2 {
-    color: var(--primary-blue);
+    color: var(--primary-red);
     margin-bottom: 1em;
+    font-weight: 600;
+    font-size: 1.8em;
 }
 
 .about-section p {
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--text-primary);
     font-size: 1.1em;
 }
@@ -149,40 +160,48 @@ nav {
 }
 
 .publications h2 {
-    color: var(--primary-blue);
-    margin-bottom: 1em;
+    color: var(--primary-red);
+    margin-bottom: 1.5em;
+    font-weight: 600;
+    font-size: 1.8em;
 }
 
 .paper {
     background-color: var(--white);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    padding: 1.5em;
+    padding: 2em;
     margin-top: 2em;
-    box-shadow: 0 2px 4px rgba(26,115,232,0.05);
-    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px var(--shadow-red);
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
 }
 
 .paper:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(26,115,232,0.1);
-    border-color: var(--primary-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px var(--shadow-red);
+    border-left-color: var(--primary-red);
+    border-color: var(--light-red);
 }
 
 .paper h3 {
     margin-top: 0;
-    margin-bottom: 0.5em;
-    color: var(--primary-blue);
+    margin-bottom: 0.8em;
+    color: var(--primary-red);
+    font-weight: 600;
+    font-size: 1.3em;
 }
 
 .paper .authors {
     margin-bottom: 1em;
     color: var(--text-secondary);
+    font-weight: 500;
 }
 
 .paper .abstract {
     margin-top: 1em;
     color: var(--text-primary);
+    line-height: 1.6;
 }
 
 .paper p[style*="italic"] {
@@ -194,10 +213,11 @@ nav {
 /* Footer */
 footer {
     text-align: center;
-    padding: 20px 0;
+    padding: 30px 0;
     color: var(--text-secondary);
-    border-top: 1px solid var(--border-color);
-    margin-top: 40px;
+    border-top: 2px solid var(--primary-red);
+    margin-top: 50px;
+    background: linear-gradient(135deg, var(--stanford-light) 0%, #FAFAFA 100%);
 }
 
 /* Responsive Design */
@@ -207,6 +227,7 @@ footer {
         align-items: center;
         text-align: center;
         gap: 2em;
+        padding: 2em;
     }
 
     .profile-image {
@@ -223,32 +244,46 @@ footer {
         flex-wrap: wrap;
         justify-content: center;
     }
+
+    .profile-info h1 {
+        font-size: 2em;
+    }
+
+    .profile-info h2 {
+        font-size: 1.3em;
+    }
 }
 
 /* Links */
 a {
-    color: var(--primary-blue);
+    color: var(--primary-red);
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 a:hover {
-    color: var(--dark-blue);
+    color: var(--dark-red);
 }
 
 /* Paper links */
 .paper-links a {
     display: inline-block;
-    padding: 0.3em 0.8em;
-    background-color: var(--light-blue);
+    padding: 0.5em 1em;
+    background-color: var(--stanford-light);
+    border: 1px solid var(--primary-red);
     border-radius: 4px;
-    margin-right: 0.5em;
+    margin-right: 0.8em;
+    margin-bottom: 0.5em;
     transition: all 0.2s ease;
+    font-weight: 500;
+    color: var(--primary-red);
 }
 
 .paper-links a:hover {
-    background-color: var(--primary-blue);
+    background-color: var(--primary-red);
     color: var(--white);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px var(--shadow-red);
 }
 
 .social-links {
@@ -262,20 +297,30 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--stanford-light);
+    transform: translateY(-2px);
 }
 
 .social-icon img {
-    width: 22px;  /* Reduced from 20px to 12px */
-    height: 20px; /* Reduced from 20px to 12px */
-    transition: transform 0.2s ease;
+    width: 22px;
+    height: 20px;
+    transition: all 0.2s ease;
+    filter: opacity(0.8);
 }
 
 /* Special case for LinkedIn logo which is typically wider */
 .social-icon img[alt="LinkedIn"] {
-    width: 22px;  /* Reduced from 72px to 40px */
-    height: 20px; /* Matches other icons' height */
+    width: 22px;
+    height: 20px;
 }
 
 .social-icon:hover img {
-    transform: translateY(-2px);
+    filter: opacity(1);
+    transform: scale(1.1);
 }
