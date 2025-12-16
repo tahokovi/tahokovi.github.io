@@ -1,41 +1,41 @@
 /* ============================================
-   DEVELOPER PORTFOLIO - Dark Tech Aesthetic
+   STANFORD CARDINAL - Academic Portfolio
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600;8..60,700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
 
 :root {
-    /* Dark Theme */
-    --bg-primary: #0a0a0f;
-    --bg-secondary: #12121a;
-    --bg-tertiary: #1a1a24;
-    --bg-card: #16161f;
+    /* Stanford Dark Theme */
+    --bg-primary: #1a1410;
+    --bg-secondary: #231c17;
+    --bg-tertiary: #2d241e;
+    --bg-card: #271f19;
     
-    /* Accent Colors - Vibrant Cyan/Teal */
-    --accent-primary: #00d4aa;
-    --accent-secondary: #00b894;
-    --accent-glow: rgba(0, 212, 170, 0.4);
-    --accent-dim: rgba(0, 212, 170, 0.1);
+    /* Stanford Cardinal Red */
+    --accent-primary: #8C1515;
+    --accent-secondary: #B83A4B;
+    --accent-glow: rgba(140, 21, 21, 0.5);
+    --accent-dim: rgba(140, 21, 21, 0.15);
     
-    /* Electric accents */
-    --electric-blue: #00a8ff;
-    --electric-purple: #a855f7;
-    --electric-pink: #ec4899;
-    --electric-orange: #f59e0b;
+    /* Stanford complementary colors */
+    --stanford-gold: #D4A853;
+    --palo-alto-green: #2A9D8F;
+    --stone: #544948;
+    --sandstone: #D2C295;
     
     /* Text */
-    --text-primary: #ffffff;
-    --text-secondary: #a1a1aa;
-    --text-muted: #71717a;
+    --text-primary: #F5F3F0;
+    --text-secondary: #C4BBB0;
+    --text-muted: #8C857C;
     
     /* Borders */
-    --border-color: rgba(255, 255, 255, 0.08);
-    --border-glow: rgba(0, 212, 170, 0.3);
+    --border-color: rgba(210, 194, 149, 0.12);
+    --border-glow: rgba(140, 21, 21, 0.4);
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #00d4aa 0%, #00a8ff 100%);
-    --gradient-card: linear-gradient(145deg, rgba(22, 22, 31, 0.9), rgba(18, 18, 26, 0.95));
-    --gradient-hero: radial-gradient(ellipse at 50% 0%, rgba(0, 212, 170, 0.15) 0%, transparent 50%);
+    --gradient-primary: linear-gradient(135deg, #8C1515 0%, #B83A4B 100%);
+    --gradient-card: linear-gradient(145deg, rgba(39, 31, 25, 0.95), rgba(35, 28, 23, 0.98));
+    --gradient-hero: radial-gradient(ellipse at 50% 0%, rgba(140, 21, 21, 0.2) 0%, transparent 50%);
 }
 
 /* ============================================
@@ -53,7 +53,7 @@ html {
 }
 
 body {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     line-height: 1.7;
     color: var(--text-primary);
     background: var(--bg-primary);
@@ -62,7 +62,7 @@ body {
     position: relative;
 }
 
-/* Animated background grid */
+/* Subtle background texture */
 body::before {
     content: '';
     position: fixed;
@@ -71,14 +71,14 @@ body::before {
     width: 100%;
     height: 100%;
     background-image: 
-        linear-gradient(rgba(0, 212, 170, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 212, 170, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
+        linear-gradient(rgba(210, 194, 149, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(210, 194, 149, 0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
     pointer-events: none;
     z-index: -1;
 }
 
-/* Ambient glow effect */
+/* Ambient Stanford glow effect */
 body::after {
     content: '';
     position: fixed;
@@ -87,9 +87,9 @@ body::after {
     width: 200%;
     height: 200%;
     background: 
-        radial-gradient(ellipse at 20% 20%, rgba(0, 212, 170, 0.08) 0%, transparent 40%),
-        radial-gradient(ellipse at 80% 80%, rgba(0, 168, 255, 0.05) 0%, transparent 40%),
-        radial-gradient(ellipse at 50% 50%, rgba(168, 85, 247, 0.03) 0%, transparent 60%);
+        radial-gradient(ellipse at 20% 20%, rgba(140, 21, 21, 0.1) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 80%, rgba(178, 111, 22, 0.06) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 50%, rgba(23, 94, 84, 0.04) 0%, transparent 60%);
     pointer-events: none;
     z-index: -1;
     animation: ambientPulse 20s ease-in-out infinite;
@@ -111,7 +111,7 @@ nav {
     right: 0;
     z-index: 1000;
     padding: 1rem 2rem;
-    background: rgba(10, 10, 15, 0.85);
+    background: rgba(26, 20, 16, 0.92);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border-color);
     transition: all 0.3s ease;
@@ -126,24 +126,18 @@ nav {
 }
 
 .nav-name {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.2rem;
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.25rem;
     font-weight: 600;
     text-decoration: none;
     color: var(--text-primary);
     position: relative;
     padding: 0.5rem 0;
+    letter-spacing: -0.01em;
 }
 
 .nav-name::before {
-    content: '>';
-    color: var(--accent-primary);
-    margin-right: 0.5rem;
-    animation: blink 1s step-end infinite;
-}
-
-@keyframes blink {
-    50% { opacity: 0; }
+    content: '';
 }
 
 .nav-name::after {
@@ -167,17 +161,18 @@ nav {
 }
 
 .nav-links a {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.95rem;
     font-weight: 500;
     text-decoration: none;
     color: var(--text-secondary);
     padding: 0.6rem 1.2rem;
-    border-radius: 8px;
+    border-radius: 6px;
     border: 1px solid transparent;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    letter-spacing: 0.02em;
 }
 
 .nav-links a::before {
@@ -187,7 +182,7 @@ nav {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 212, 170, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(140, 21, 21, 0.15), transparent);
     transition: left 0.5s ease;
 }
 
@@ -196,11 +191,11 @@ nav {
 }
 
 .nav-links a:hover {
-    color: var(--accent-primary);
+    color: var(--sandstone);
     border-color: var(--border-glow);
     background: var(--accent-dim);
     transform: translateY(-2px);
-    box-shadow: 0 4px 20px rgba(0, 212, 170, 0.2);
+    box-shadow: 0 4px 20px rgba(140, 21, 21, 0.25);
 }
 
 /* ============================================
@@ -248,7 +243,7 @@ main {
     right: -100%;
     width: 300%;
     height: 300%;
-    background: radial-gradient(circle at center, rgba(0, 212, 170, 0.03) 0%, transparent 40%);
+    background: radial-gradient(circle at center, rgba(140, 21, 21, 0.04) 0%, transparent 40%);
     animation: rotate 30s linear infinite;
     pointer-events: none;
 }
@@ -261,11 +256,11 @@ main {
     width: 280px;
     height: 280px;
     object-fit: cover;
-    border-radius: 20px;
-    border: 3px solid var(--border-color);
+    border-radius: 16px;
+    border: 3px solid var(--accent-primary);
     box-shadow: 
         0 0 0 4px var(--bg-primary),
-        0 0 40px rgba(0, 212, 170, 0.2),
+        0 0 40px rgba(140, 21, 21, 0.25),
         0 20px 60px rgba(0, 0, 0, 0.5);
     transition: all 0.5s ease;
     position: relative;
@@ -276,7 +271,7 @@ main {
     transform: scale(1.02) rotate(-1deg);
     box-shadow: 
         0 0 0 4px var(--bg-primary),
-        0 0 60px rgba(0, 212, 170, 0.4),
+        0 0 60px rgba(140, 21, 21, 0.4),
         0 30px 80px rgba(0, 0, 0, 0.6);
 }
 
@@ -285,14 +280,13 @@ main {
 }
 
 .profile-info h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-family: 'Source Serif 4', serif;
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
     margin-bottom: 0.5rem;
     line-height: 1.1;
+    letter-spacing: -0.02em;
 }
 
 .institution {
@@ -310,8 +304,8 @@ main {
 }
 
 .contact-info p {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.95rem;
     color: var(--text-muted);
     display: flex;
     align-items: center;
@@ -320,7 +314,7 @@ main {
 }
 
 .contact-info p:hover {
-    color: var(--accent-primary);
+    color: var(--sandstone);
 }
 
 .social-links {
@@ -345,7 +339,7 @@ main {
     background: var(--accent-dim);
     border-color: var(--accent-primary);
     transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
+    box-shadow: 0 10px 30px rgba(140, 21, 21, 0.35);
 }
 
 .social-icon img {
@@ -373,30 +367,30 @@ main {
 }
 
 .about-section::before {
-    content: '// About';
+    content: '';
     position: absolute;
-    top: 1.5rem;
-    right: 2rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    opacity: 0.5;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 0 4px 4px 0;
 }
 
 .about-section h2 {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.5rem;
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.6rem;
     font-weight: 600;
     color: var(--accent-primary);
     margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
     gap: 1rem;
+    letter-spacing: -0.01em;
 }
 
 .about-section h2::before {
-    content: '#';
-    color: var(--electric-purple);
+    content: '';
 }
 
 .about-section p {
@@ -440,14 +434,13 @@ main {
    ============================================ */
 
 main > h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-family: 'Source Serif 4', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
     margin-bottom: 3rem;
     text-align: center;
+    letter-spacing: -0.02em;
 }
 
 .publications {
@@ -455,8 +448,8 @@ main > h1 {
 }
 
 .publications h2 {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.4rem;
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 2rem;
@@ -465,6 +458,7 @@ main > h1 {
     display: flex;
     align-items: center;
     gap: 1rem;
+    letter-spacing: -0.01em;
 }
 
 .publications h2::before {
@@ -503,7 +497,7 @@ main > h1 {
     border-color: var(--border-glow);
     box-shadow: 
         0 20px 60px rgba(0, 0, 0, 0.4),
-        0 0 40px rgba(0, 212, 170, 0.1);
+        0 0 40px rgba(140, 21, 21, 0.15);
 }
 
 .paper:hover::before {
@@ -511,6 +505,7 @@ main > h1 {
 }
 
 .paper h3 {
+    font-family: 'Source Serif 4', serif;
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--text-primary);
@@ -529,13 +524,14 @@ main > h1 {
 }
 
 .paper .date {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.85rem;
-    color: var(--accent-primary);
+    color: var(--sandstone);
     background: var(--accent-dim);
     padding: 0.3rem 0.8rem;
-    border-radius: 6px;
+    border-radius: 4px;
     white-space: nowrap;
+    font-weight: 500;
 }
 
 .paper .authors {
@@ -545,10 +541,11 @@ main > h1 {
 }
 
 .paper .journal {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.9rem;
-    color: var(--electric-purple);
+    color: var(--palo-alto-green);
     margin-bottom: 1rem;
+    font-weight: 500;
 }
 
 .paper .conference-line {
@@ -580,22 +577,21 @@ main > h1 {
 }
 
 .cv-container h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-family: 'Source Serif 4', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--text-primary);
     margin-bottom: 1rem;
     text-align: center;
+    letter-spacing: -0.02em;
 }
 
 .cv-container > p {
     text-align: center;
     color: var(--text-secondary);
     margin-bottom: 2rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 1rem;
 }
 
 .download-button {
@@ -604,19 +600,19 @@ main > h1 {
     gap: 0.75rem;
     padding: 1rem 2rem;
     background: var(--gradient-primary);
-    color: var(--bg-primary);
-    font-family: 'JetBrains Mono', monospace;
+    color: #fff;
+    font-family: 'Source Sans 3', sans-serif;
     font-weight: 600;
     font-size: 1rem;
     text-decoration: none;
-    border-radius: 12px;
+    border-radius: 8px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 212, 170, 0.3);
+    box-shadow: 0 4px 20px rgba(140, 21, 21, 0.35);
 }
 
 .download-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 40px rgba(0, 212, 170, 0.5);
+    box-shadow: 0 8px 40px rgba(140, 21, 21, 0.5);
 }
 
 .download-button::before {
@@ -647,7 +643,7 @@ footer {
 }
 
 footer p {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.9rem;
     color: var(--text-muted);
 }
@@ -673,8 +669,8 @@ footer p::before {
 }
 
 @keyframes glowPulse {
-    0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 170, 0.3); }
-    50% { box-shadow: 0 0 40px rgba(0, 212, 170, 0.5); }
+    0%, 100% { box-shadow: 0 0 20px rgba(140, 21, 21, 0.35); }
+    50% { box-shadow: 0 0 40px rgba(140, 21, 21, 0.5); }
 }
 
 .profile-section,
@@ -694,7 +690,7 @@ footer p::before {
    ============================================ */
 
 ::selection {
-    background: rgba(0, 212, 170, 0.3);
+    background: rgba(140, 21, 21, 0.4);
     color: var(--text-primary);
 }
 
