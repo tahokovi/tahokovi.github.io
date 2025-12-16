@@ -1,0 +1,6 @@
+PWD /Users/tahokovi/Documents/GitHub/tahokovi.github.io/CV
+INPUT /usr/local/texlive/2025/texmf.cnf
+INPUT /usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /Users/tahokovi/Documents/GitHub/tahokovi.github.io/CV/CV_121525.tex
+OUTPUT CV_121525.log

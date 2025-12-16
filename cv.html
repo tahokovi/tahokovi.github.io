@@ -5,38 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV | T. M. Jensen Ahokovi</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Additional styles specific to CV page */
-        .cv-container {
-            width: 100%;
-            height: 100vh;
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        .pdf-embed {
-            width: 100%;
-            height: calc(100vh - 200px); /* Adjust height accounting for nav and padding */
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        .download-button {
-            display: inline-block;
-            margin: 20px 0;
-            padding: 10px 20px;
-            background-color: #2c3e50;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        .download-button:hover {
-            background-color: #34495e;
-        }
-    </style>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
 </head>
 <body>
     <nav>
@@ -53,12 +22,13 @@
     <main>
         <div class="cv-container">
             <h1>Curriculum Vitae</h1>
-            <p>Last updated: June 2025. Users on mobile devices should click [Download PDF] for the document to load properly!</p>
-            <a href="Ahokovi_CV_June2025.pdf" class="download-button" download>Download PDF</a>
+            <p>Last updated: December 2025 • Mobile users: tap Download for best viewing</p>
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <a href="Ahokovi_CV_Dec2025.pdf" class="download-button" download>Download PDF</a>
+            </div>
             
-            <!-- PDF Embed -->
             <iframe 
-                src="Ahokovi_CV_June2025.pdf" 
+                src="Ahokovi_CV_Dec2025.pdf" 
                 class="pdf-embed"
                 title="CV PDF"
             ></iframe>
@@ -66,7 +36,7 @@
     </main>
 
     <footer>
-        <p>© 2024 T. M. Jensen Ahokovi</p>
+        <p>2024 T. M. Jensen Ahokovi — Built with passion</p>
     </footer>
 </body>
 </html>
