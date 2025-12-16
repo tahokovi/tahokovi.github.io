@@ -10,11 +10,15 @@
 <body>
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="nav-name">T. M. Jensen Ahokovi</a>
+            <a href="index.html" class="nav-name">
+                <span class="nav-bracket">{</span>
+                T. Ahokovi
+                <span class="nav-bracket">}</span>
+            </a>
             <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="research.html">Research</a>
-                <a href="cv.html">CV</a>
+                <a href="index.html"><span class="nav-num">01</span>Home</a>
+                <a href="research.html"><span class="nav-num">02</span>Research</a>
+                <a href="cv.html" class="active"><span class="nav-num">03</span>CV</a>
             </div>
         </div>
     </nav>
@@ -22,8 +26,8 @@
     <main>
         <div class="cv-container">
             <h1>Curriculum Vitae</h1>
-            <p>Last updated: December 2025 • Mobile users: tap Download for best viewing</p>
-            <div style="text-align: center; margin-bottom: 2rem;">
+            <p>Last updated: December 2025 · Mobile users: tap Download for best viewing</p>
+            <div style="margin-bottom: 2rem;">
                 <a href="Ahokovi_CV_Dec2025.pdf" class="download-button" download>Download PDF</a>
             </div>
             
@@ -36,7 +40,30 @@
     </main>
 
     <footer>
-        <p>2026 T. M. Jensen Ahokovi</p>
+        <div class="footer-content">
+            <span class="footer-copy">© 2026 T. M. Jensen Ahokovi</span>
+            <span class="footer-tech">Stanford · Economics · Research</span>
+        </div>
     </footer>
+
+    <!-- Minimal Status Bar -->
+    <div class="status-bar">
+        <div class="status-left">
+            <div class="status-indicator">
+                <span class="status-dot"></span>
+                <span>ready</span>
+            </div>
+            <span class="status-branch">
+                <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M5 3.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm0 2.122a2.25 2.25 0 1 0-1.5 0v.878A2.25 2.25 0 0 0 5.75 8.5h1.5v2.128a2.251 2.251 0 1 0 1.5 0V8.5h1.5a2.25 2.25 0 0 0 2.25-2.25v-.878a2.25 2.25 0 1 0-1.5 0v.878a.75.75 0 0 1-.75.75h-4.5A.75.75 0 0 1 5 6.25v-.878zm3.75 7.378a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm3-8.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5z"/>
+                </svg>
+                main
+            </span>
+        </div>
+        <div class="status-right">
+            <span>UTF-8</span>
+            <span class="status-loc">Stanford, CA</span>
+        </div>
+    </div>
 </body>
 </html>
