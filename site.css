@@ -335,6 +335,7 @@ html:not(.js) .view { border-top: 1px solid var(--line); }
 @media (max-width: 26rem) {
   .choices ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .choices a { width: 100%; justify-content: space-between; }
+  .choices a::after { display: none; }
 }
 
 @media print {
