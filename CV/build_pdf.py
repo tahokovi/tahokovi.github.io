@@ -171,9 +171,7 @@ def research(node):
                 title = text(child(item, 'cv-paper'))
                 links = child(item, 'cv-links')
                 anchors = list(links) if links is not None else []
-                if anchors:
-                    title = link(anchors[0].get('href'), title)
-                result += r'\needspace{4\baselineskip}\textbf{' + title + '}\\par\n'
+                result += r'\needspace{5\baselineskip}\textbf{' + title + '}\\par\n'
                 result += text(child(item, 'cv-byline')).rstrip('.') + '. '
                 meta = child(item, 'cv-meta')
                 if meta is not None:
@@ -183,8 +181,20 @@ def research(node):
                 available = child(item, 'cv-avail')
                 if available is not None:
                     result += r'{\small ' + text(available) + '} '
-                if len(anchors) > 1:
-                    result += r'{\small ' + link(anchors[1].get('href'), 'Working paper') + '} '
+                if anchors:
+                    version_links = []
+                    for anchor in anchors:
+                        url = anchor.get('href')
+                        if url.startswith('https://www.nber.org/papers/'):
+                            label = 'Link to NBER working paper version'
+                        elif url.startswith('https://www.aei.org/'):
+                            label = 'Link to AEI working paper version'
+                        elif url.startswith('https://uhero.hawaii.edu/'):
+                            label = 'Link to published brief'
+                        else:
+                            label = 'Link to published version'
+                        version_links.append(link(url, '[' + label + ']'))
+                    result += r'\par{\small ' + r'\quad '.join(version_links) + '} '
                 result += r'\par\vspace{2pt}' + '\n'
     return result + '\\endgroup\n'
 
