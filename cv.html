@@ -19,7 +19,7 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/literata-text-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/schibsted-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="site.css?v=20261011">
+  <link rel="stylesheet" href="site.css?v=20261011-navigation">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -46,7 +46,10 @@
         <a href="Ahokovi_CV.pdf?v=20261011-uhero" target="_blank" rel="noopener">Open PDF</a>
         <a href="Ahokovi_CV.pdf?v=20261011-uhero" download>Download PDF</a>
       </p>
-      <nav class="cv-toc" aria-label="CV sections">
+    </header>
+      <nav class="cv-toc" aria-label="CV sections" data-spy>
+        <p class="cv-toc-label">On this page</p>
+        <span class="cv-toc-marker" aria-hidden="true"></span>
         <ul role="list">
           <li><a href="#experience">Experience</a></li>
           <li><a href="#education">Education</a></li>
@@ -56,7 +59,8 @@
           <li><a href="#honors">Honors</a></li>
         </ul>
       </nav>
-    </header>
+
+    <div class="cv-body">
 
     <section class="cv-section cv-experience" id="experience" aria-labelledby="experience-title">
       <h2 id="experience-title">Experience</h2>
@@ -392,11 +396,13 @@
       <p>References available upon request.</p>
       <p><a href="mailto:tahokovi@stanford.edu">tahokovi@stanford.edu</a></p>
     </footer>
+    </div>
   </main>
 
   <footer class="colophon">
     <p>&copy; 2026 T. M. Jensen Ahokovi</p>
   </footer>
 
+  <script src="site.js?v=20261011-navigation" defer></script>
 </body>
 </html>

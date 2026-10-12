@@ -40,6 +40,9 @@
   --shell: 68rem;
   --pad-x: clamp(1rem, 4vw, 3rem);
   --header-h: 3.5rem;
+  --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
+  --t-state: 150ms;
+  --t-move: 220ms;
 }
 
 * { box-sizing: border-box; }
@@ -98,6 +101,7 @@ main:focus { outline: none; }
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
 }
 .site-name {
+  display: inline-flex; align-items: center; min-height: 44px;
   color: var(--ink); text-decoration: none;
   font-size: 0.9375rem; font-weight: 700; letter-spacing: -0.005em;
 }
@@ -105,10 +109,14 @@ main:focus { outline: none; }
 .site-nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 0.25rem; }
 .site-nav a {
   display: inline-flex; align-items: center; min-height: 44px; padding: 0 0.8rem;
-  color: var(--ink); text-decoration: none;
+  color: var(--ink); text-decoration: underline; text-decoration-color: transparent;
+  text-decoration-thickness: 2px; text-underline-offset: .45em;
+  transition: color var(--t-state), background-color var(--t-state), text-decoration-color var(--t-state);
   font-size: 0.9375rem; font-weight: 600; border-radius: 6px;
 }
-.site-nav a:hover { color: var(--cardinal-deep); background: var(--tint); text-decoration: none; }
+@media (hover: hover) {
+  .site-nav a:hover { color: var(--cardinal-deep); background: var(--tint); }
+}
 
 /* ---------- Opening ---------- */
 
@@ -197,9 +205,21 @@ main:focus { outline: none; }
   font: inherit; font-size: 0.9375rem; font-weight: 550; color: var(--ink);
   background: #fff; border: 1px solid var(--line); border-radius: 999px; cursor: pointer;
 }
-.filters button:hover { border-color: var(--muted); }
+@media (hover: hover) {
+  .filters button:hover { border-color: var(--muted); }
+}
 .filters button[aria-pressed="true"] { background: var(--cardinal); border-color: var(--cardinal); color: #fff; }
-.filters button[aria-pressed="true"]:hover { background: var(--cardinal-deep); border-color: var(--cardinal-deep); }
+@media (hover: hover) {
+  .filters button[aria-pressed="true"]:hover { background: var(--cardinal-deep); border-color: var(--cardinal-deep); }
+}
+.filters button {
+  -webkit-tap-highlight-color: transparent;
+  transition: color var(--t-state), background-color var(--t-state), border-color var(--t-state);
+}
+.filters button:active { background: var(--tint); }
+.filters button[aria-pressed="true"]:active { background: var(--cardinal-deep); }
+.filter-count { margin-left: .4em; font-variant-numeric: tabular-nums; color: var(--muted); }
+[aria-pressed="true"] .filter-count { color: inherit; }
 
 #research[data-filter="authored"] .block:not([data-block="authored"]),
 #research[data-filter="progress"] .block:not([data-block="progress"]),
@@ -295,7 +315,7 @@ main:focus { outline: none; }
 
 /* One reading column, aligned with the header's left edge. */
 .cv > * { max-width: 40rem; }
-.site-nav a[aria-current="page"] { color: var(--cardinal); text-decoration: underline; text-underline-offset: 0.3em; }
+.site-nav a[aria-current] { color: var(--cardinal); text-decoration-color: currentColor; }
 
 .cv-head { padding: clamp(2rem, 6vh, 3.5rem) 0 0; }
 .cv-title { margin: 0; line-height: 1.05; }
@@ -493,12 +513,71 @@ address { font-style: normal; color: var(--muted); }
   .filters-label { width: 100%; }
 }
 
+/* ---------- Reading position and navigation feedback ---------- */
+.cv-body { min-width: 0; }
+.cv-toc-label, .cv-toc-marker { display: none; }
+.section h2, .cv-section > h2 { --arrival-rest: transparent; border-radius: 2px; }
+.section:target h2, .cv-section:target > h2 { animation: arrive 2s var(--ease-out); }
+@keyframes arrive {
+  0%, 40% { background-color: var(--tint); box-shadow: 0 0 0 .375rem var(--tint); }
+  100% { background-color: var(--arrival-rest); box-shadow: 0 0 0 .375rem transparent; }
+}
+@keyframes enter {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+  .block.is-entering { animation: enter 200ms var(--ease-out) calc(var(--i, 0) * 40ms) backwards; }
+}
+@media (min-width: 64rem) {
+  .cv {
+    display: grid; grid-template-columns: minmax(0, 40rem) 10rem;
+    grid-template-areas: "head ." "body toc";
+    column-gap: clamp(2rem, 5vw, 5rem); align-items: start;
+  }
+  .cv-head { grid-area: head; }
+  .cv-body { grid-area: body; }
+  .cv-toc {
+    grid-area: toc; position: sticky; top: calc(var(--header-h) + 2.5rem);
+    margin-top: clamp(2.75rem, 7vh, 4rem); padding: 0; border: 0;
+  }
+  .cv-toc-label { display: block; margin: 0 0 .5rem 1rem; font: 600 .8125rem var(--sans); color: var(--muted); }
+  .cv-toc ul { display: block; }
+  .cv-toc a {
+    padding-left: 1rem; font-weight: 550; color: var(--muted); text-decoration: none;
+    transition: color var(--t-state);
+  }
+  .cv-toc a[aria-current] { color: var(--ink); font-weight: 650; }
+  .cv-toc a:hover { text-decoration: underline; }
+  .cv-toc-marker {
+    position: absolute; left: 0; top: 0; width: 6px; height: 6px;
+    background: var(--cardinal); border-radius: 50%; pointer-events: none;
+    transform: translateY(var(--y, 0px)); transition: transform var(--t-move) var(--ease-out);
+  }
+  .cv-toc[data-active] .cv-toc-marker { display: block; }
+}
+@media (max-width: 63.99rem) {
+  .cv-body :is(a, summary, button) { scroll-margin-top: 4rem; }
+  .cv-section > h2 {
+    --arrival-rest: var(--paper);
+    position: sticky; top: calc(var(--header-h) + 1px); z-index: 10;
+    padding: .5rem 0; background: var(--paper);
+  }
+  .cv-toc a[aria-current] { color: var(--cardinal); text-decoration-color: currentColor; }
+}
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  .section:target h2, .cv-section:target > h2 { background-color: var(--tint); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
 
 @media print {
-  .site-header, .skip-link, .filters { display: none !important; }
+  .site-header, .skip-link, .filters, .cv-toc { display: none !important; }
+  .cv { display: block; }
+  .cv-section > h2 { position: static; }
   .section { break-inside: avoid-page; }
   a { color: inherit; }
 }
