@@ -1,19 +1,9 @@
-/* tahokovi.github.io — single-page stylesheet.
-   Schibsted Grotesk for the name, navigation, headings, and labels;
-   Literata for reading text. Fonts and licenses live in assets/fonts/. */
+/* Site-wide Schibsted Grotesk typography. Fonts and licenses: assets/fonts/. */
 
 @font-face {
   font-family: "Schibsted Grotesk";
-  src: url("assets/fonts/schibsted-grotesk-latin.woff2") format("woff2");
+  src: url("assets/fonts/schibsted-grotesk-latin-haw.woff2") format("woff2");
   font-weight: 400 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Literata";
-  src: url("assets/fonts/literata-text-latin.woff2") format("woff2");
-  font-weight: 400 650;
   font-style: normal;
   font-display: swap;
 }
@@ -29,7 +19,7 @@
   --bar: #a39b90;
 
   --sans: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
-  --serif: "Literata", Georgia, "Times New Roman", serif;
+  --text-2: #3d3933;
 
   --step--1: 0.875rem;   /* labels, meta */
   --step-0: 1.0625rem;   /* body */
@@ -54,7 +44,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: var(--step-0);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
@@ -241,7 +231,7 @@ main:focus { outline: none; }
 .work > * { margin: 0; max-width: 62ch; }
 .work-title {
   grid-area: title;
-  font-family: var(--serif); font-size: var(--step-1); font-weight: 600; line-height: 1.38; letter-spacing: -0.003em;
+  font-family: var(--sans); font-size: var(--step-1); font-weight: 600; line-height: 1.38; letter-spacing: -0.003em;
 }
 .work-meta {
   grid-area: meta;
@@ -356,7 +346,7 @@ main:focus { outline: none; }
 
 .cv-entry > * { margin: 0; }
 .cv-role { font-size: 1.125rem; font-weight: 650; line-height: 1.35; }
-.cv-paper { font-family: var(--serif); font-size: 1.125rem; font-weight: 600; line-height: 1.4; letter-spacing: -0.003em; }
+.cv-paper { font-family: var(--sans); font-size: 1.125rem; font-weight: 600; line-height: 1.4; letter-spacing: -0.003em; }
 .cv-org { margin-top: 0.15rem; }
 .cv-byline { margin-top: 0.2rem; color: var(--muted); }
 .cv-meta {
@@ -568,6 +558,68 @@ address { font-style: normal; color: var(--muted); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
+
+/* Approved option 4: one family, with hierarchy through scale and weight. */
+:root {
+  --t-meta: 0.875rem;     /* 14  dates, places, status, labels */
+  --t-detail: 1rem;       /* 16  supporting text */
+  --t-read: 1.0625rem;    /* 17  reading text (statement leads, abstracts) */
+  --t-title: 1.25rem;     /* 20  role and paper titles */
+  --t-lead: 1.5rem;       /* 24  opening statement */
+  --measure: 36rem;
+}
+
+body { font-family: var(--sans); font-size: var(--t-detail); line-height: 1.6; }
+
+/* Research titles and reading text */
+.intro-lead, .work-title, .cv-paper, .cv-talk > h3 { font-family: var(--sans); }
+.intro-lead { font-size: var(--t-lead); font-weight: 400; line-height: 1.4; }
+@media (max-width: 44rem) { .intro-lead { font-size: 1.3125rem; } }
+.work-title, .cv-paper, .cv-talk > h3 { font-size: var(--t-title); font-weight: 600; line-height: 1.35; letter-spacing: -0.004em; }
+div.cv-more-body {
+  font-family: var(--sans); font-size: var(--t-read); line-height: 1.65; color: var(--text-2);
+}
+
+/* Opening */
+.intro-role { font-size: var(--t-detail); line-height: 1.6; color: var(--text-2); }
+
+/* Homepage sections */
+.section-lead { font-size: var(--t-read); line-height: 1.6; color: var(--text-2); }
+.block-head h3, .cv-subhead, .education h3 { font-size: var(--t-title); font-weight: 680; }
+.block-head p { font-size: var(--t-detail); }
+.work-people { margin-top: 0.35rem; font-size: var(--t-detail); line-height: 1.55; color: var(--text-2); }
+.work-venue { font-size: 0.9375rem; line-height: 1.5; }
+.role-text h3 { font-size: 1.125rem; }
+.role-org { font-size: var(--t-detail); }
+.role-note { font-size: var(--t-detail); color: var(--text-2); }
+.education p, address { font-size: var(--t-detail); }
+
+/* CV detail text */
+.cv-desc, .cv-lead, .cv-byline, .cv-more-body, .cv-skills dd, .cv-plain, .cv-foot,
+.cv-supervisors, .cv-avail, .cv-defs dd, .cv-venue {
+  font-size: var(--t-detail); line-height: 1.6; color: var(--text-2);
+}
+/* Long paragraphs get a reading measure; one- and two-line items use the full column. */
+p.cv-desc, .cv-more-body, .cv-lead { max-width: var(--measure); }
+.cv-duties li, .cv-defs dd { text-wrap: pretty; }
+.cv-supervisors { text-wrap: balance; }
+.cv-lead, .cv-avail { color: var(--muted); }
+.cv-more-body { padding-left: 1.125rem; }
+div.cv-more-body { max-width: 37rem; }
+
+.cv-experience .cv-role, .cv-role { font-size: var(--t-title); font-weight: 650; line-height: 1.3; letter-spacing: -0.008em; }
+.cv-experience .cv-org, .cv-org { margin-top: 0.2rem; font-size: var(--t-read); font-weight: 480; line-height: 1.45; color: var(--ink); }
+/* Lead phrases a step lighter than the role title and organization. */
+.cv-duties strong { font-weight: 560; }
+.cv-experience .cv-duties { color: var(--text-2); line-height: 1.6; }
+.cv-experience .cv-duties > li + li { margin-top: 0.4rem; }
+
+.cv-meta { font-size: var(--t-meta); }
+.cv-byline { margin-top: 0.3rem; }
+
+.cv-defs dt { font-size: var(--t-detail); font-weight: 560; }
+.cv-defs dd { margin-top: 0.15rem; }
+.cv-defs > div + div { margin-top: 0.75rem; }
 
 @media print {
   .site-header, .skip-link, .filters, .cv-toc { display: none !important; }

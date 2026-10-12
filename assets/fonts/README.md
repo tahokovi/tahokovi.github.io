@@ -1,9 +1,9 @@
 # Fonts
 
-Both families are self-hosted under the SIL Open Font License 1.1. Keep each license file next to its font.
+The website uses Schibsted Grotesk only. The retained font files are licensed under the SIL Open Font License 1.1. Keep each license file next to its font.
 
-- `schibsted-grotesk-latin.woff2` — Schibsted Grotesk, Latin subset, weights 400–900. Used for the name, navigation, headings, labels, and buttons. License: `OFL-Schibsted-Grotesk.txt`.
-- `literata-text-latin.woff2` — Literata, Latin subset, used for reading text. License: `OFL-Literata.txt`. The Literata license declares no Reserved Font Name, so the derived file keeps the family name.
+- `schibsted-grotesk-latin.woff2` — Schibsted Grotesk, Latin subset, weights 400–900. Retained original subset; no longer loaded by the website. License: `OFL-Schibsted-Grotesk.txt`.
+- `literata-text-latin.woff2` — Literata, Latin subset, retained for earlier designs; no longer loaded by the website. License: `OFL-Literata.txt`. The Literata license declares no Reserved Font Name, so the derived file keeps the family name.
 
 ## How `literata-text-latin.woff2` was made
 
@@ -22,4 +22,4 @@ text.flavor = "woff2"
 text.save("literata-text-latin.woff2")
 ```
 
-Neither subset contains U+0101 (ā), so "Mānoa" draws that letter from a fallback font.
+The original Latin subsets do not contain U+0101 (ā). The approved option 4 uses `schibsted-grotesk-latin-haw.woff2`, copied unchanged from the typography exploration, whose extended subset was prepared for Hawaiian text. CSS declares its weight range as 400–800. This is the only font preloaded and used by the current website.
