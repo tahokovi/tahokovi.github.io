@@ -3,6 +3,11 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+# The default build uses the print-specific selection of shared website facts.
+if [[ $# -eq 0 ]]; then
+    exec python3 "$ROOT_DIR/CV/build_pdf.py"
+fi
+
 DEFAULT_SOURCE="$ROOT_DIR/CV/CV_121525.tex"
 SOURCE_TEX="${1:-$DEFAULT_SOURCE}"
 OUTPUT_PDF="${2:-$ROOT_DIR/Ahokovi_CV.pdf}"

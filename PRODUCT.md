@@ -1,0 +1,72 @@
+# Product
+
+## Register
+
+brand
+
+## Users
+
+The site serves three audiences through a shared homepage and standalone CV, without audience-specific versions:
+
+- **General visitors** (journalists, policy staff, people who have met T. M. Jensen Ahokovi): within 30 seconds they should learn, in everyday words, who the site's owner is, what kinds of problems the research addresses, and how to get in touch.
+- **Academics** (faculty, collaborators, seminar organizers, admissions readers): they should see the career stage, fields, which papers are authored and which were research assistance, where the papers are, and the CV.
+- **Private-sector data and research teams**: they should see what the work does with data, in which tools, and where it can be read.
+
+## Product Purpose
+
+Present an accurate, current, and human identity for an early-career researcher whose work spans housing, tax, and public-program research across labor and urban economics, public finance, and economic history. Success means a visitor understands the problems first and the academic labels second, authorship is never ambiguous, and the page is useful in a quick scan on desktop or mobile.
+
+## Brand Personality
+
+Exact, grounded, and generous. The site should feel intellectually serious without sounding senior, personable without becoming casual, and Stanford-adjacent without resembling an official university template.
+
+## Anti-references
+
+Generic portfolio templates, mature-economist publication archives, startup-style hero metrics, institutional university pages, cream editorial pastiche, terminal cosplay, opaque coding in-jokes, excessive glass effects, decorative gradients, decorative dashboards, card grids, fabricated charts, fake quotations, and visual motifs that imply research findings not present in the source material.
+
+## Design Principles
+
+1. Open with the name and a plain-language statement of the problems studied and the work with data; follow with the exact role and affiliations. Academic terms come after the plain statement, never as the visitor's starting point.
+2. Distinguish authored work, works in progress, and research assistance in the interface itself. Every entry shows its role and status in the same place.
+3. Put source links and the CV ahead of homepage-length abstracts or résumé prose.
+4. Let technical detail reward attention without making it a prerequisite for navigation.
+5. Treat mobile, keyboard, reduced-motion, readable contrast, and no-JavaScript access as core requirements.
+6. Spend visual boldness in one place: the name. Everything else stays quiet. Structure (columns, rules, the timeline axis) appears only where it encodes information.
+
+## Content and Attribution Rules
+
+- State only facts supported by the owner, the published papers, or the existing site. Do not invent technical capabilities, personal contributions, results, metrics, or credentials.
+- Research-assistant projects stay under their authors' names, labeled "Research assistant", and never appear as authored work.
+- Keep existing bibliography entries and titles exactly. Removing an entry is a content decision for the site owner, not a design change.
+- Dates in the About timeline come from the CV; where the CV gives only a season or year, the text says so and the bar is an approximation.
+- The HTML CV (`cv.html`) supplies shared facts, while the PDF is a separate print presentation. Run `python3 CV/build_pdf.py` to regenerate `CV/CV_121525.tex` and `Ahokovi_CV.pdf`. The builder selects and arranges material for print: education first, aligned dates, plain experience bullets, selected coursework without descriptions, compact linked bibliography entries without abstracts, and concise skills and honors. Do not restore a complete HTML-to-PDF mapping; the owner explicitly requested distinct formats. The build requires Python 3 and pdflatex with EB Garamond, enumitem, needspace, titlesec, fancyhdr, and tabularx. Check the rendered PDF after rebuilding; keep the single Updated label current. Keep roles, dates, authorship, collaborators, publication status, and the Presented/Invited marks exactly as recorded; light edits for readability must not add responsibilities.
+- The public CV carries no phone numbers, personal email addresses, or references' contact details. References appear as "References available upon request."; the only contact detail on the CV page is the Stanford email, and the address stays in the homepage Contact section.
+
+## Implemented Decisions (October 2026)
+
+- **Homepage and standalone CV.** The homepage keeps Research, About, and Contact as scrolling sections. The header CV link and opening View CV button lead to `cv.html`. The standalone CV shares the site header and styling, with links back to the homepage sections and an active CV navigation label.
+- **No command strip or routed views.** Navigation uses ordinary page and anchor links. `site.js` redirects old homepage `#cv` and `#/cv` bookmarks to `cv.html`, normalizes other old section hashes, and runs research filters. Without JavaScript, the old `#cv` anchor provides a link to the CV. `research.html` still redirects to the homepage Research section. The CV page requires no JavaScript.
+- **Typography.** Schibsted Grotesk for the name, navigation, headings, labels, and buttons. Literata for reading text and research titles, self-hosted as a text instance (`assets/fonts/literata-text-latin.woff2`, optical size 16, weights 400–650). Both families are OFL; license files and derivation notes are in `assets/fonts/`. Tabular figures only on digit-only labels: in Schibsted they widen commas and periods.
+- **Palette.** Paper `#fcfcfa`, ink `#211f1c`, muted `#625d56`, rule `#e4e1da`, cardinal `#8c1515` (links, primary buttons, active filter, current role), blush `#f6efec` (hover).
+- **Research entries.** A left column holds role (Sole author, Coauthor, Research assistant) and status with date; the main column holds title, collaborators or authors, venue, and labeled links ("Read the paper (PDF)") or the existing availability note. Filters (All, Authored, In progress, Research assistance) are 44 px buttons with `aria-pressed`, hidden until JavaScript runs.
+- **About timeline.** Roles in reverse order of start date, each with its date range, organization, and the people supported where the site already named them. A shared 2021–2027 track shows when each role ran, so overlapping roles are visible. The track is decorative to assistive technology; the dated text carries the information. Education is listed separately because the CV gives only years.
+- **HTML CV.** `cv.html` is written for reading on the web, not as a copy of the PDF. One left-aligned column (40rem, about 75 characters per line) on every screen size; no date column, no table alignment, no rules between entries. Sections, newest first within each: Experience (research roles, ordered by start date like the About timeline), Education, Skills, Research (Authored work, Works in progress, Research assistance), Conferences, and Honors and activities (honors and affiliations), then "References available upon request" and the Stanford email.
+- **CV entries.** The role, degree, or paper title comes first, then the organization or authors, then a small line with dates and place (or venue, status, and date), then a short description. Research-assistance entries say "By" their authors and carry a "Research assistant" label; there is no umbrella statement of duties. Conference rows mark "Invited" or "Presented" exactly as the CV source records them.
+- **NBER citations and legacy CV links.** Spell out "National Bureau of Economic Research (NBER)" in both CV working-paper citations. Legacy CV hashes redirect to `cv.html?v=20261011` so a cached copy of the old redirect page cannot send the visitor back to the homepage. The homepage loads `site.js?v=20261011` to fetch the updated redirect logic; the homepage CV links use the same cache key, while the canonical URL remains `cv.html`. Stylesheets and the PDF download also use `v=20261011` to refresh previously cached versions.
+- **CV disclosures and navigation.** Native `<details>` hold only secondary detail: coursework and paper abstracts. Roles, degrees, papers, and talks are always visible. A plain row of anchor links under the opening jumps to each section; it does not stick. The page needs no JavaScript.
+- **CV text hierarchy.** Supporting descriptions, bullet lists, bylines, coursework, abstracts, skills, and honors use smaller (15px) Schibsted Grotesk. Organizations and paper titles retain Literata. Deep cardinal distinguishes section headings and skill labels; bullet markers use cardinal. Experience adopts Approach A: 20px role titles, 16px affiliations on separate lines with hanging indents, 14px dates and location, and a separate 15px supervisor line with names emphasized in ink. Contributions remain 15px, with dark `#3d3933` detail and ink lead phrases. Spacing groups these layers; no shaded panels or date columns. All changes are scoped to the CV.
+- **Experience bullets.** The six main Experience entries each have three contribution bullets using the owner's revised wording. Stanford emphasizes R/Python/SQL pipelines, public and proprietary datasets comprising millions to billions of observations, exploratory analysis and causal inference, and communication. AEI names Stata/R/Python and instrumental variables and difference-in-differences, as confirmed by the owner. Other roles emphasize the methods, data preparation, and outputs in the agreed draft. Supervisor lines remain separate. TBSE uses the three owner-approved bullets on access to economics for underrepresented students, particularly Pacific Islanders, academic pathways, and peer guidance. These revisions also appear in the regenerated PDF.
+- **Other experience placement.** TBSE and Ruth’s Chris appear directly below the six main roles within Experience, before Education.
+- **Skills visibility.** At the owner's request, Skills explicitly lists SQL, regression analysis, statistical modeling, causal inference (IV, DiD, synthetic control, and synthetic DiD), Git, and cluster computing. Visualization describes statistical graphics, geospatial visualization, and figures for reports and presentations, naming ggplot2, Matplotlib, and ArcGIS. ArcGIS appears only under visualization. The redundant package dropdown was removed.
+- **Coursework detail.** Native Coursework disclosures now give short, linked catalog-topic summaries for the three Stanford courses and UH courses. Stanford sources are its Bulletin; UH sources are archived catalogs (2020–21, with the graduate Econometrics link from 2022–23). These summarize catalog scope rather than a verified term-specific syllabus. The owner confirmed MATH 311, ECON 321, and ECON 425/427 for the remaining entries; the latter pair now uses the catalog titles Introduction to Econometrics and Economic Forecasting. AEI's CV affiliation uses the owner's requested full name, American Enterprise Institute for Public Policy Research (AEI). The PDF lists selected course titles and numbers; the web CV retains the detailed course descriptions.
+- **Hospitality experience.** Other experience includes Busser at Ruth’s Chris Steak House, Waikiki, July 2021–May 2022 (dates and location supplied by the owner). Three draft bullets emphasize teamwork, competing service demands, and guest communication. Use "high-volume" without a nationwide ranking; the claimed ranking by guests served has not been independently verified.
+- **Optional PDF.** The opening shows "Updated: October 2026" with "Open PDF" and "Download PDF" links to `Ahokovi_CV.pdf`. The page never embeds or preloads the PDF. The PDF is a three-page serif CV with consistent facts but its own selection, order, density, and page layout. Full abstracts and course descriptions remain on the website. All eight experience entries and their contribution bullets remain in print. Before the print redesign, the full-content PDF and its builder were preserved in `../CV_Backups/2026-10-11_before-print-redesign/`. The previous PDF and source were preserved outside the site in `../CV_Backups/2026-10-11_210512/`. The earlier inline PDF viewer stays archived in `design-explorations/single-page-foundation-2026-10-10/pre-change/`.
+- **Not yet built:** portfolio page, project list, case studies, charts, data pipelines, backend services, and a project-facts panel. Do not add navigation links to sections that do not exist.
+
+## Performance Budget
+
+Keep the homepage at or under 150 KB transferred, with no external requests and no framework or build step. GitHub Pages serves HTML, CSS, and JavaScript gzipped, so "transferred" means compressed size. The homepage no longer loads the HTML CV. Both pages share local fonts and CSS; the CV uses no JavaScript and does not load the PDF until requested. Check actual transfer sizes when deploying; local gzip calculations are estimates.
+
+## Accessibility & Inclusion
+
+Target WCAG 2.2 AA contrast and interaction behavior. Use semantic landmarks, a skip link to the main content, logical heading order, touch targets of at least 44 px for controls and standalone links, visible focus states, keyboard-operable native controls, descriptive link labels, useful image alt text, and a reduced-motion mode. The page uses no entrance animations or scroll effects. The primary content and navigation must remain usable without JavaScript; controls that need JavaScript stay hidden without it.
